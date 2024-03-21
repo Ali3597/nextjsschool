@@ -36,10 +36,10 @@ export  async function GET(request: NextRequest) {
             take: take? parseInt(take): 10,
         
         })
-        console.log(movies,"heheheheheheh")
+
         return NextResponse.json(movies);
     } catch (error) {
-        console.log(error,"mon errororororoororor")
+       
         return NextResponse.json({status: 400})
     }
    

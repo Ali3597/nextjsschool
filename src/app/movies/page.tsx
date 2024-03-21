@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default  async function Page() {
     const movies = await fetch("http://localhost:3000/api/movies").then((res) => res.json());
-    console.log(movies,"mes films")
   return (<>
   
     <div className="flex flex-wrap justify-around">

@@ -28,17 +28,14 @@ type Routeparams = {
 *               
 */
 export  async function GET(request: NextRequest,{ params }: Routeparams) {
-  console.log(params.idMovie, "mon ididiidididid")
   try {
     const movie = await prisma.movies.findUnique({
       where: {
         id: new  ObjectId(params.idMovie),
       },
     })
-    console.log(movie," mn giflflms")
   return NextResponse.json(movie);
   } catch (error) {
-    console.log(error,"mon errrreeeee")
     return NextResponse.json({status: 400})
   }
     

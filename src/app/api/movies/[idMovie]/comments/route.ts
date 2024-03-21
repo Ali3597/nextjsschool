@@ -80,7 +80,6 @@ export  async function POST(request: NextRequest,{ params }: Routeparams) {
     })
     return NextResponse.json(comment);
   } catch (error) {
-    console.log(error)
     return NextResponse.json({status: 400})
   }
   

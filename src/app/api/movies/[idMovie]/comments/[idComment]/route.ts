@@ -140,7 +140,6 @@ export  async function DELETE(request: NextRequest,{ params }: Routeparams) {
   return NextResponse.json({"message":"Deleted successfully"});
     
   } catch (error) {
-    console.log(error)
     return NextResponse.json({status: 400})
   }
 }
