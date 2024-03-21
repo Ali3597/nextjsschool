@@ -1,13 +1,22 @@
 import "./globals.css";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+import Header from "@/components/Header";
+import AuthProvider from "@/providers/AuthProvider";
+
+
+export default function RootLayout({ children}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="fr">
-      <body >{children}</body>
+      <body >
+      <AuthProvider> 
+        <Header />
+        <main>
+        {children}
+        </main>
+        </AuthProvider>
+      </body>
     </html>
   );
 }

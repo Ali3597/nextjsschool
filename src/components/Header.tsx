@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import SessionsHeader from "./SessionsHeader";
+
 
 const Header = () => {
+
   return (
     <header className="bg-white border-gray-200 dark:bg-gray-900">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -15,6 +18,7 @@ const Header = () => {
         <li>
           <Link href="/movies" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Mes films</Link>
         </li>
+        <SessionsHeader />
   
       </ul>
     </div>
