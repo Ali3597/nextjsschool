@@ -8,12 +8,21 @@ import prisma from "@/utils/prisma";
 * @swagger
 * /api/movies:
 *   get:
-*       description: Returns movies
-*       responses:
-*           200:
-*               description: Hello Movies
-*           400: 
-*               description: Bad Request
+*     description: Returns movies
+*     parameters:
+*         - name: skip
+*           in: query
+*           description: The number of items to skip before starting to collect the result set
+*           schema:
+*             type: integer
+*         - in: query
+*           name: take
+*           description: The number of items to fetch
+*     responses:
+*         200:
+*             description: Fetched Successfully
+*         400: 
+*             description: Bad Request
 *               
 */
 export  async function GET(request: NextRequest) {
