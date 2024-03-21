@@ -9,7 +9,24 @@ type Routeparams = {
 }
 
 
-
+/**
+* @swagger
+* /api/movies/{idMovie}:
+*   get:
+*     description: Returns one movie 
+*     parameters:
+*         - name: idMovie
+*           in: path
+*           description: The id of the movie searched
+*           schema:
+*             type: integer
+*     responses:
+*         200:
+*             description: Fetched Successfully
+*         400: 
+*             description: Bad Request
+*               
+*/
 export  async function GET(request: NextRequest,{ params }: Routeparams) {
   try {
     const movie = await prisma.movies.findUnique({

@@ -8,6 +8,24 @@ type Routeparams = {
     }
 }
 
+/**
+* @swagger
+* /api/movies/{idMovie}/comments:
+*   get:
+*     description: Returns comment of one movie
+*     parameters:
+*         - name: idMovie
+*           in: path
+*           description: The id of the movie searched
+*           schema:
+*             type: integer
+*     responses:
+*         200:
+*             description: Fetched Successfully
+*         400: 
+*             description: Bad Request
+*               
+*/
 export  async function GET(request: NextRequest,{ params }: Routeparams) {
   try {
     const comments = await prisma.comments.findMany({
@@ -22,6 +40,38 @@ export  async function GET(request: NextRequest,{ params }: Routeparams) {
     
 }
 
+/**
+* @swagger
+* /api/movies/{idMovie}/comments:
+*   post:
+*     description: Create a  comment of a movie
+*     parameters:
+*         - name: idMovie
+*           in: path
+*           description: The id of the movie searched
+*           schema:
+*             type: integer
+*     requestBody:
+*       required: true
+*       content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 email:
+*                   type: string
+*                   format: email
+*                 name:
+*                   type: string
+*                 text:
+*                   type: string
+*     responses:
+*         200:
+*             description: Created Successfully
+*         400: 
+*             description: Bad Request
+*               
+*/
 export  async function POST(request: NextRequest,{ params }: Routeparams) {
   try {
     const body = await request.json()
