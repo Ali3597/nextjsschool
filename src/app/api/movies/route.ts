@@ -1,10 +1,21 @@
 import { type NextRequest,NextResponse } from "next/server";
 import prisma from "@/utils/prisma";
-import { useSearchParams } from 'next/navigation'
 
 
 
 
+/**
+* @swagger
+* /api/movies:
+*   get:
+*       description: Returns movies
+*       responses:
+*           200:
+*               description: Hello Movies
+*           400: 
+*               description: Bad Request
+*               
+*/
 export  async function GET(request: NextRequest) {
 
     try {
