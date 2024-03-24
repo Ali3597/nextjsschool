@@ -10,7 +10,7 @@ const SignupForm = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/user/profile");
+      router.push("/profile");
     }
   }, [status, router]);
 
@@ -30,6 +30,9 @@ const SignupForm = () => {
       }
     });
   };
+  if (status==="loading"){
+    return <p>Loading ....</p>
+  }
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
