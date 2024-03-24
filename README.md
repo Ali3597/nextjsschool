@@ -54,6 +54,15 @@ NEXTAUTH_URL
 URL 
 ```
 
+## Stack
+
+- MongoDB
+- Prisma
+- Next.js
+- Typescript
+- Swagger UI
+- NextAuth
+
 ## API Reference
 
 Run the projet and go to the `/swagger` route on `[http://localhost:3000``](http://localhost:3000``/).
