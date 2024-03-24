@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from "next/link";
 
 export default  async function Page() {
-    const movies = await fetch("http://localhost:3000/api/movies").then((res) => res.json());
-
+    const movies = await fetch(process.env.URL +"/api/movies").then((res) => res.json());
+ 
   return (<>
   
     <div className="flex flex-wrap justify-around">

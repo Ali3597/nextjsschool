@@ -4,7 +4,7 @@ export const dynamic ='force-dynamic'
 
  
 export default async function Page({ params }: { params: { idMovie: string } }) {
-  const movie  = await fetch(`http://localhost:3000/api/movies/${params.idMovie}`).then((res) => res.json());
+  const movie  = await fetch(process.env.URL +`/api/movies/${params.idMovie}`).then((res) => res.json());
 
 
   
