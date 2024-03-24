@@ -2,6 +2,32 @@ import prisma from "@/utils/prisma";
 import * as bcrypt from "bcrypt";
 import { NextResponse,type NextRequest } from "next/server";
 
+
+
+/**
+* @swagger
+* /api/login:
+*   post:
+*     description:  Return the user if credentials are right or null if not
+*     requestBody:
+*       required: true
+*       content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 email:
+*                   type: string
+*                   format: email
+*                 password:
+*                   type: string
+*     responses:
+*         200:
+*             description:  returns the user if the connection is successful
+*         200: 
+*             description: returns null if the connection is not successful
+*               
+*/
 export async function POST(request: NextRequest) {
   const body = await request.json();
 
