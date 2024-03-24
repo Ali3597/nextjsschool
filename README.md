@@ -16,21 +16,44 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Run Locally
+Clone the project
 
-## Learn More
+```bash
+git clone https://github.com/Ali3597/nextjsschool.git
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Go to the project directory
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+  cd nextjsschool
+```
 
-## Deploy on Vercel
+Install dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm install
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Start the server
+
+```bash
+ npm run dev
+```
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file. Look at the `.env.exemple` if needed.
+
+```
+DATABASE_URL
+NEXTAUTH_SECRET
+NEXTAUTH_URL
+URL 
+```
+
+## API Reference
+
+Run the projet and go to the `/swagger` route on `[http://localhost:3000``](http://localhost:3000``/).
