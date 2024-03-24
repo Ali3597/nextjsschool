@@ -23,9 +23,7 @@ import { NextResponse,type NextRequest } from "next/server";
 *                   type: string
 *     responses:
 *         200:
-*             description:  returns the user if the connection is successful
-*         200: 
-*             description: returns null if the connection is not successful
+*             description:  returns the user if the connection is successful or null if the connection is not successful
 *               
 */
 export async function POST(request: NextRequest) {
