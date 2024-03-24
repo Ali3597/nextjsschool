@@ -43,9 +43,9 @@ export  async function GET(request: NextRequest,{ params }: Routeparams) {
       },
     })
     if (movie){
-      return NextResponse.json({data:movie,status:200});
+      return NextResponse.json({data:movie},{status:200});
     }else{
-      return NextResponse.json({message:"Movie Not found",status: 404})
+      return NextResponse.json({message:"Movie Not found"},{status: 404})
     }
     
   } catch (error) {
@@ -104,7 +104,7 @@ export  async function PUT(request: NextRequest,{ params }: Routeparams) {
       },
       data:{date:new Date(),...body} ,
     })
-    return NextResponse.json({data:comment,status:201});
+    return NextResponse.json({data:comment},{status:201});
   } catch (error) {
     
     return NextResponse.json({status: 400})
@@ -143,7 +143,7 @@ export  async function DELETE(request: NextRequest,{ params }: Routeparams) {
         id:new  ObjectId(params.idComment),
       },
     })
-  return NextResponse.json({message:"Deleted successfully",status:204});
+  return NextResponse.json({message:"Deleted successfully"},{status:204});
     
   } catch (error) {
     return NextResponse.json({status: 400})

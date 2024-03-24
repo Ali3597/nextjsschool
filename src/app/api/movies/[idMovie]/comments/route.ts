@@ -33,7 +33,7 @@ export  async function GET(request: NextRequest,{ params }: Routeparams) {
         movie_id: new  ObjectId(params.idMovie),
       },
     })
-  return NextResponse.json({data:comments,status:200});
+  return NextResponse.json({data:comments},{status:200});
   } catch (error) {
     return NextResponse.json({status: 400})
   }
@@ -78,7 +78,7 @@ export  async function POST(request: NextRequest,{ params }: Routeparams) {
     const comment = await prisma.comments.create({
       data:{movie_id: new  ObjectId(params.idMovie),date:new Date(),...body} ,
     })
-    return NextResponse.json({data:comment,status:201});
+    return NextResponse.json({data:comment},{status:201});
   } catch (error) {
     return NextResponse.json({status: 400})
   }
