@@ -3,10 +3,11 @@ import Link from "next/link";
 
 export default  async function Page() {
     const movies = await fetch("http://localhost:3000/api/movies").then((res) => res.json());
+
   return (<>
   
     <div className="flex flex-wrap justify-around">
-    {movies.map((movie)=>(
+    {movies.data.map((movie)=>(
             
   
             <Link href={`/movies/${movie.id}`} key={movie.id} className="m-5 sm:max-w-xl ">

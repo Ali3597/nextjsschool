@@ -30,6 +30,8 @@ type Routeparams = {
 *             description: Fetched Successfully
 *         400: 
 *             description: Bad Request
+*         404: 
+*             description: Movie not Found
 *               
 */
 export  async function GET(request: NextRequest,{ params }: Routeparams) {
@@ -40,7 +42,11 @@ export  async function GET(request: NextRequest,{ params }: Routeparams) {
         id:new  ObjectId(params.idComment),
       },
     })
-  return NextResponse.json(movie);
+    if (movie){
+      return NextResponse.json({data:movie,status:200});
+    }else{
+      return NextResponse.json({message:"Movie Not found",status: 404})
+    }
     
   } catch (error) {
     return NextResponse.json({status: 400})
@@ -82,7 +88,7 @@ export  async function GET(request: NextRequest,{ params }: Routeparams) {
 *                   type: string
 *                   required: false
 *     responses:
-*         200:
+*         201:
 *             description: Created Successfully
 *         400: 
 *             description: Bad Request
@@ -98,7 +104,7 @@ export  async function PUT(request: NextRequest,{ params }: Routeparams) {
       },
       data:{date:new Date(),...body} ,
     })
-    return NextResponse.json(comment);
+    return NextResponse.json({data:comment,status:201});
   } catch (error) {
     
     return NextResponse.json({status: 400})
@@ -123,8 +129,8 @@ export  async function PUT(request: NextRequest,{ params }: Routeparams) {
 *           schema:
 *             type: integer
 *     responses:
-*         200:
-*             description: Fetched Successfully
+*         204:
+*             description: Deleted Successfully
 *         400: 
 *             description: Bad Request
 *               
@@ -137,7 +143,7 @@ export  async function DELETE(request: NextRequest,{ params }: Routeparams) {
         id:new  ObjectId(params.idComment),
       },
     })
-  return NextResponse.json({"message":"Deleted successfully"});
+  return NextResponse.json({message:"Deleted successfully",status:204});
     
   } catch (error) {
     return NextResponse.json({status: 400})

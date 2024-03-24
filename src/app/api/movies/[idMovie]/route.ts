@@ -25,6 +25,8 @@ type Routeparams = {
 *             description: Fetched Successfully
 *         400: 
 *             description: Bad Request
+*         404: 
+*             description: Movie Not found
 *               
 */
 export  async function GET(request: NextRequest,{ params }: Routeparams) {
@@ -34,7 +36,11 @@ export  async function GET(request: NextRequest,{ params }: Routeparams) {
         id: new  ObjectId(params.idMovie),
       },
     })
-  return NextResponse.json(movie);
+    if (movie){
+      return NextResponse.json({data:movie,status:200});
+    }else{
+      return NextResponse.json({message:"Movie Not found",status: 404})
+    }
   } catch (error) {
     return NextResponse.json({status: 400})
   }
